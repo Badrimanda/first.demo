@@ -1,0 +1,205 @@
+Certainly! Here's the combined version of all the provided Java code snippets translated into Python:
+
+```python
+class demo:
+    def reverse_string(self):
+        s = "badri"
+        r = ""
+        for i in range(len(s) - 1, -1, -1):
+            r += s[i]
+        print("Reverse of a String:", r)
+
+    def is_prime(self, num):
+        is_prime = False
+        for i in range(2, num):
+            if num % i == 0:
+                is_prime = True
+                break
+        if is_prime:
+            print(num, "is not a prime number")
+        else:
+            print(num, "is a prime number")
+
+    def prime_numbers_in_range(self, start, end):
+        c = 0
+        for i in range(start, end):
+            is_prime = True
+            for j in range(2, i):
+                if i % j == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                print(i)
+                c += 1
+        print("Count of prime numbers between", start, "and", end, ":", c)
+
+    def is_palindrome_string(self):
+        s = "badri"
+        r = ""
+        for i in range(len(s) - 1, -1, -1):
+            r += s[i]
+        print("Reverse of a String:", r)
+        if r == s:
+            print("Palindrome")
+        else:
+            print("Not a Palindrome")
+
+    def reverse_number(self):
+        num = 1234
+        reverse_num = 0
+        while num > 0:
+            digit = num % 10
+            reverse_num = reverse_num * 10 + digit
+            num = num // 10
+        print("Reverse of a Number:", reverse_num)
+
+    def is_palindrome_number(self):
+        num = 1001
+        temp = num
+        reverse_num = 0
+        while temp > 0:
+            digit = temp % 10
+            reverse_num = reverse_num * 10 + digit
+            temp = temp // 10
+        print("Reverse of a Number:", reverse_num)
+        if num == reverse_num:
+            print("Palindrome")
+        else:
+            print("Not a Palindrome")
+
+    def factorial(self, n):
+        fact = 1
+        for i in range(1, n + 1):
+            fact *= i
+        print("Factorial of", n, ":", fact)
+
+    def sum_of_digits(self, num):
+        sum_digits = 0
+        while num > 0:
+            digit = num % 10
+            sum_digits += digit
+            num = num // 10
+        print("Sum of Digits:", sum_digits)
+
+    def count_digits(self, num):
+        count = 0
+        while num > 0:
+            count += 1
+            num = num // 10
+        print("Count of Digits:", count)
+
+    def is_armstrong_number(self, num):
+        temp = num
+        sum_of_cubes = 0
+        while temp > 0:
+            digit = temp % 10
+            sum_of_cubes += digit ** 3
+            temp = temp // 10
+        if num == sum_of_cubes:
+            print(num, "is an Armstrong number")
+        else:
+            print(num, "is not an Armstrong number")
+
+    def max_in_array(self, arr):
+        max_num = arr[0]
+        for i in range(1, len(arr)):
+            if arr[i] > max_num:
+                max_num = arr[i]
+        print("Maximum in the Array:", max_num)
+
+    def min_in_array(self, arr):
+        min_num = arr[0]
+        for i in range(1, len(arr)):
+            if arr[i] < min_num:
+                min_num = arr[i]
+        print("Minimum in the Array:", min_num)
+
+    def vowels_in_string(self, s):
+        vowels = ""
+        consonants = ""
+        for char in s:
+            if char.lower() in 'aeiou':
+                vowels += char + " "
+            else:
+                consonants += char + " "
+        print("Vowels:", vowels)
+        print("Consonants:", consonants)
+        print("Number of Vowels:", len(vowels))
+        print("Number of Consonants:", len(consonants))
+
+    def count_even_and_odd_digits(self, num):
+        even_count = 0
+        odd_count = 0
+        while num > 0:
+            digit = num % 10
+            if digit % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+            num = num // 10
+        print("Number of Even Digits:", even_count)
+        print("Number of Odd Digits:", odd_count)
+
+    def nth_fibonacci_number(self, n):
+        if n <= 1:
+            return n
+        else:
+            return self.nth_fibonacci_number(n - 1) + self.nth_fibonacci_number(n - 2)
+
+    def fibonacci_series(self, n):
+        fib_series = []
+        for i in range(n):
+            fib_series.append(self.nth_fibonacci_number(i))
+        print("Fibonacci Series:", fib_series)
+
+    def fibonacci_series_v2(self, n):
+        a, b = 0, 1
+        fib_series = [a, b]
+        for i in range(2, n):
+            c = a + b
+            fib_series.append(c)
+            a, b = b, c
+        print("Fibonacci Series:", fib_series)
+
+    def binary_to_decimal(self, binary):
+        decimal = 0
+        power = 0
+        for digit in binary[::-1]:
+            decimal += int(digit) * (2 ** power)
+            power += 1
+        print("Decimal Equivalent:", decimal)
+
+    def decimal_to_binary(self, decimal):
+        binary = ""
+        while decimal > 0:
+            binary = str(decimal % 2) + binary
+            decimal = decimal // 2
+        print("Binary Equivalent:", binary)
+
+    def swap_numbers(self, a, b):
+        print("Before Swapping - a:", a, "b:", b)
+        a, b = b, a
+        print("After Swapping - a:", a, "b:", b)
+
+
+# Instantiate the class and call methods
+d = demo()
+d.reverse_string()
+d.is_prime(5)
+d.prime_numbers_in_range(1, 100)
+d.is_palindrome_string()
+d.reverse_number()
+d.is_palindrome_number()
+d.factorial(6)
+d.sum_of_digits(1234)
+d.count_digits(12345)
+d.is_armstrong_number(153)
+d.max_in_array([1, 2, 3, 4, 5, 0])
+d.min_in_array([1, 2, 3, 4, 5, 0])
+d.vowels_in_string("badri")
+d.count_even_and_odd_digits(12345)
+print("5th Fibonacci Number:", d.nth_fibonacci_number(5))
+d.fibonacci_series(6)
+d.fibonacci_series_v2(6)
+d.binary_to_decimal("1001")
+d.dec
