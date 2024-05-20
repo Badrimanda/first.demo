@@ -1,0 +1,272 @@
+Sure, here's the Python code translated into a single Java class:
+
+```java
+public class Demo {
+
+    public void reverseString() {
+        String s = "badri";
+        String r = "";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            r += s.charAt(i);
+        }
+        System.out.println("Reverse of a String: " + r);
+    }
+
+    public void isPrime(int num) {
+        boolean isPrime = true;
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            System.out.println(num + " is a prime number");
+        } else {
+            System.out.println(num + " is not a prime number");
+        }
+    }
+
+    public void primeNumbersInRange(int start, int end) {
+        int count = 0;
+        for (int i = start; i < end; i++) {
+            boolean isPrime = true;
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.println(i);
+                count++;
+            }
+        }
+        System.out.println("Count of prime numbers between " + start + " and " + end + ": " + count);
+    }
+
+    public void isPalindromeString() {
+        String s = "badri";
+        String r = "";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            r += s.charAt(i);
+        }
+        System.out.println("Reverse of a String: " + r);
+        if (r.equals(s)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a Palindrome");
+        }
+    }
+
+    public void reverseNumber() {
+        int num = 1234;
+        int reverseNum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            reverseNum = reverseNum * 10 + digit;
+            num = num / 10;
+        }
+        System.out.println("Reverse of a Number: " + reverseNum);
+    }
+
+    public void isPalindromeNumber() {
+        int num = 1001;
+        int temp = num;
+        int reverseNum = 0;
+        while (temp > 0) {
+            int digit = temp % 10;
+            reverseNum = reverseNum * 10 + digit;
+            temp = temp / 10;
+        }
+        System.out.println("Reverse of a Number: " + reverseNum);
+        if (num == reverseNum) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a Palindrome");
+        }
+    }
+
+    public void factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial of " + n + ": " + fact);
+    }
+
+    public void sumOfDigits(int num) {
+        int sumDigits = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sumDigits += digit;
+            num = num / 10;
+        }
+        System.out.println("Sum of Digits: " + sumDigits);
+    }
+
+    public void countDigits(int num) {
+        int count = 0;
+        while (num > 0) {
+            count++;
+            num = num / 10;
+        }
+        System.out.println("Count of Digits: " + count);
+    }
+
+    public void isArmstrongNumber(int num) {
+        int temp = num;
+        int sumOfCubes = 0;
+        while (temp > 0) {
+            int digit = temp % 10;
+            sumOfCubes += digit * digit * digit;
+            temp = temp / 10;
+        }
+        if (num == sumOfCubes) {
+            System.out.println(num + " is an Armstrong number");
+        } else {
+            System.out.println(num + " is not an Armstrong number");
+        }
+    }
+
+    public void maxInArray(int[] arr) {
+        int maxNum = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > maxNum) {
+                maxNum = arr[i];
+            }
+        }
+        System.out.println("Maximum in the Array: " + maxNum);
+    }
+
+    public void minInArray(int[] arr) {
+        int minNum = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < minNum) {
+                minNum = arr[i];
+            }
+        }
+        System.out.println("Minimum in the Array: " + minNum);
+    }
+
+    public void vowelsInString(String s) {
+        String vowels = "";
+        String consonants = "";
+        for (int i = 0; i < s.length(); i++) {
+            char charAt = s.charAt(i);
+            if ("aeiouAEIOU".indexOf(charAt) != -1) {
+                vowels += charAt + " ";
+            } else {
+                consonants += charAt + " ";
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+        System.out.println("Number of Vowels: " + vowels.trim().split(" ").length);
+        System.out.println("Number of Consonants: " + consonants.trim().split(" ").length);
+    }
+
+    public void countEvenAndOddDigits(int num) {
+        int evenCount = 0;
+        int oddCount = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            if (digit % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+            num = num / 10;
+        }
+        System.out.println("Number of Even Digits: " + evenCount);
+        System.out.println("Number of Odd Digits: " + oddCount);
+    }
+
+    public int nthFibonacciNumber(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return nthFibonacciNumber(n - 1) + nthFibonacciNumber(n - 2);
+        }
+    }
+
+    public void fibonacciSeries(int n) {
+        int[] fibSeries = new int[n];
+        for (int i = 0; i < n; i++) {
+            fibSeries[i] = nthFibonacciNumber(i);
+        }
+        System.out.print("Fibonacci Series: ");
+        for (int i : fibSeries) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public void fibonacciSeriesV2(int n) {
+        int a = 0, b = 1;
+        int[] fibSeries = new int[n];
+        fibSeries[0] = a;
+        fibSeries[1] = b;
+        for (int i = 2; i < n; i++) {
+            int c = a + b;
+            fibSeries[i] = c;
+            a = b;
+            b = c;
+        }
+        System.out.print("Fibonacci Series: ");
+        for (int i : fibSeries) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public void binaryToDecimal(String binary) {
+        int decimal = 0;
+        int power = 0;
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            int digit = Character.getNumericValue(binary.charAt(i));
+            decimal += digit * Math.pow(2, power);
+            power++;
+        }
+        System.out.println("Decimal Equivalent: " + decimal);
+    }
+
+    public void decimalToBinary(int decimal) {
+        String binary = "";
+        while (decimal > 0) {
+            binary = (decimal % 2) + binary;
+            decimal = decimal / 2;
+        }
+        System.out.println("Binary Equivalent: " + binary);
+    }
+
+    public void swapNumbers(int a, int b) {
+        System.out.println("Before Swapping - a: " + a + " b: " + b);
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("After Swapping - a: " + a + " b: " + b);
+    }
+
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.reverseString();
+        d.isPrime(5);
+        d.primeNumbersInRange(1, 100);
+        d.isPalindromeString();
+        d.reverseNumber();
+        d.isPalindromeNumber();
+        d.factorial(6);
+        d.sumOfDigits(1234);
+        d.countDigits(12345);
+        d.isArmstrongNumber(153);
+        d.maxInArray(new int[]{1, 2, 3, 4, 5, 0});
+        d.minInArray(new int[]{1, 2, 3, 4, 5, 0});
+        d.vowelsInString("badri");
+        d.countEvenAndOddDigits(12345);
+        System.out.println("5th Fibonacci Number: " + d.nthFibonacciNumber(5));
+        d.fibonacciSeries(6);
+        d.fibonacciSeriesV2(6);
+        d.binaryToDecimal("1001");
+        d.decimalToBinary(9);
+       
