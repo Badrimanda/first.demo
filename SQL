@@ -1,0 +1,7 @@
+SELECT 
+    Product,
+    MAX(CASE WHEN Month = 'Jan' THEN Sales ELSE 0 END) AS Jan,
+    MAX(CASE WHEN Month = 'Feb' THEN Sales ELSE 0 END) AS Feb
+FROM Sales
+GROUP BY Product
+ORDER BY Product;
