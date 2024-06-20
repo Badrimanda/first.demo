@@ -60,6 +60,42 @@ const App = () => (
 
 export default App;
 USE REDUCER
+REDUX-USED TO STORE THE STATE OF REDUX VALUES
+REDUCER-USED TO STORE THE STATE VALUES OF LOCAL CONST VARIABLE
+WHERE THE SYNTAX OF THE USEREDUCER IS THE ONE OF THE MAOST IMPWRTANTTHING IN THE SOCIAL MEDIA WHIC WAS HELPFUL TO THE ALL TE PEOLE WHO WAS THE PRESENT AT HERE AND READING THE SINGLE TYPE OF THE USE REDUCER CREACT HOOKS COMPNENT
+CONST[STATE,DISPATCH]=USEREDUCER(REDUCER,INTIALSATE);
+
+const initialState = { count: 0 };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    default:
+      throw new Error(`Unhandled action type: ${action.type}`);
+  }
+};
+import React, { useReducer } from 'react';
+
+const Counter = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <h1>Count: {state.count}</h1>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    </div>
+  );
+};
+
+export default Counter;
+
 import React from 'react';
 
 const SumArray = () => {
