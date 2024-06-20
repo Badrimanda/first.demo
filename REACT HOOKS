@@ -1,0 +1,106 @@
+USESTATE
+LETS ADD TO FUNCTIONAL COMPONENTS
+import React, { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+export default Counter;
+
+USEEFFECT I REACT HOOKS
+useEffect performs side effects in functional components, such as fetching data, updating the DOM, and setting up subscriptions.
+
+jsx
+import React, { useState, useEffect } from 'react';
+
+const FetchData = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []); // Empty dependency array ensures it runs only once
+
+  return (
+    <div>
+      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : 'Loading...'}
+    </div>
+  );
+};
+
+export default FetchData;
+
+USECONTEXT
+useContext allows you to use the context API to share values between components without passing props.
+
+import React, { useContext } from 'react';
+
+const MyContext = React.createContext();
+
+const Component = () => {
+  const value = useContext(MyContext);
+
+  return <div>{value}</div>;
+};
+
+const App = () => (
+  <MyContext.Provider value="Hello from context!">
+    <Component />
+  </MyContext.Provider>
+);
+
+export default App;
+USE REDUCER
+import React from 'react';
+
+const SumArray = () => {
+  const numbers = [1, 2, 3, 4, 5];
+
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+  return (
+    <div>
+      <h1>Sum of Numbers</h1>
+      <p>The sum is: {sum}</p>
+    </div>
+  );
+};
+
+export default SumArray;
+USECALLBACK
+import React, { useState, useCallback } from 'react';
+
+const Child = React.memo(({ onClick }) => {
+  console.log('Child rendered');
+  return <button onClick={onClick}>Click me</button>;
+});
+
+const Parent = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    console.log('Button clicked');
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <Child onClick={handleClick} />
+    </div>
+  );
+};
+
+export default Parent;
+
+
+
